@@ -14,3 +14,11 @@ class InMemoryRepository:
         if item_id not in self.storage:
             raise ValueError("Item does not exist.")
         del self.storage[item_id]
+
+    def get_all(self):
+        return list(self.storage.values())
+
+    def update(self, item_id, item):
+        if item_id not in self.storage:
+            raise ValueError("Item does not exist.")
+        self.storage[item_id] = item
